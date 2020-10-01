@@ -1,0 +1,14 @@
+Learning to setup the gateway, ip address & connection various physical devices like Pc, Hub and Switch.
+
+Observations:
+
+->Simulation is started by placing a simple PDU in source (PC0) and destination devices (PC3).
+->At first stage we can see that message packet is transfered from PC0 to HUB.
+->At second stage HUB being a dumb deivce transfered the packet to connected device. i.e ( to PC2 and Switch0).
+->At third stage packet at PC2 is de-encapuslated and dropped as it was not the destination point and unlink HUB Switch is a smart device it reads the packet destionation address and transmits to the correct device.
+So Switch0 transfers packet only to PC3 not to PC1 as it knows the destination.
+->At fourth stage the PC3 de-encapuslate and accepts the packet and an acnknowledgement is sent by encapsulating it back to Switch0 with destination address of PC0.
+->Switch0 transmits the ack packet to HUB.
+->Again HUB transfer the packet to all device connected. i.e (PC0 and PC2).
+->The Packet at PC2 is de-encapsulated and drop as it is not the correct destination.
+->The ack packet is de-encapsulated and then accepted by PC0.
